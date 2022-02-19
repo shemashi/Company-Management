@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BonLivraison{% endblock %}
+
+{% block body %}
+    <h1>BonLivraison</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bon_livraison.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('bon_livraison_index') }}">back to list</a>
+
+    <a href="{{ path('bon_livraison_edit', {'id': bon_livraison.id}) }}">edit</a>
+
+    {{ include('bon_livraison/_delete_form.html.twig') }}
+{% endblock %}

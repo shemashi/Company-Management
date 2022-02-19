@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employe index{% endblock %}
+
+{% block body %}
+    <h1>Employe index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Cin</th>
+                <th>Date de Naissance</th>
+                <th>Profile</th>
+                <th>Date d'Emploi</th>
+                <th>Salaire</th>
+                <th>Type de Contrat</th>
+                <th>Etat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employe in employe %}
+            <tr>
+                <td>{{ employe.id }}</td>
+                <td>{{ employe.nom }}</td>
+                <td>{{ employe.email }}</td>
+                <td>{{ employe.phone }}</td>
+                <td>{{ employe.cin }}</td>
+                <td>{{ employe.dateNaissance ? employe.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ employe.profile }}</td>
+                <td>{{ employe.dateEmploi ? employe.dateEmploi|date('Y-m-d') : '' }}</td>
+                <td>{{ employe.salaire }}</td>
+                <td>{{ employe.typeContrat }}</td>
+                <td>{{ employe.etat }}</td>
+                <td>
+                    <a href="{{ path('employe_show', {'id': employe.id}) }}">show</a>
+                    <a href="{{ path('employe_edit', {'id': employe.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('employe_new') }}">Create new</a>
+{% endblock %}

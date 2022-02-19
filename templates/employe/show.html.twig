@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employe{% endblock %}
+
+{% block body %}
+    <h1>Employe</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ employe.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ employe.nom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ employe.email }}</td>
+            </tr>
+            <tr>
+                <th>Cnss</th>
+                <td>{{ employe.cnss }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ employe.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ employe.phone }}</td>
+            </tr>
+            <tr>
+                <th>Statue</th>
+                <td>{{ employe.statue }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ employe.genre }}</td>
+            </tr>
+            <tr>
+                <th>Rib</th>
+                <td>{{ employe.rib }}</td>
+            </tr>
+            <tr>
+                <th>Banque</th>
+                <td>{{ employe.banque }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ employe.cin }}</td>
+            </tr>
+            <tr>
+                <th>DateNaissance</th>
+                <td>{{ employe.dateNaissance ? employe.dateNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Profile</th>
+                <td>{{ employe.profile }}</td>
+            </tr>
+            <tr>
+                <th>DateEmploi</th>
+                <td>{{ employe.dateEmploi ? employe.dateEmploi|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Salaire</th>
+                <td>{{ employe.salaire }}</td>
+            </tr>
+            <tr>
+                <th>TypeContrat</th>
+                <td>{{ employe.typeContrat }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ employe.etat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('employe_index') }}">back to list</a>
+
+    <a href="{{ path('employe_edit', {'id': employe.id}) }}">edit</a>
+
+    {{ include('employe/_delete_form.html.twig') }}
+{% endblock %}
